@@ -2,8 +2,6 @@ from os import EX_SOFTWARE
 from elasticsearch import Elasticsearch, helpers
 import sys, json
 
-es = "http://10.3.18.237:9200/"
-
 def getcount(index, url):
     try:
         es = Elasticsearch([url])
