@@ -1,0 +1,6 @@
+{
+    "customer": "customer-aws-0-0",
+    "es_url": "http://127.0.0.1:9200/",
+    "allindexes": ["entity-hosts", "entity-users", "entity-assets","test101-aws-0-0-entity-networks","test101-aws-0-0-events-*","meta-logs-*","network-database","vtdatabase","work-logs","service_monitor"]
+}
+
