@@ -1,6 +1,10 @@
-from os import EX_SOFTWARE
+import os 
 from elasticsearch import Elasticsearch, helpers
 import sys, json
+import datetime
+import subprocess
+
+
 
 def getcount(index, url):
     try:
@@ -42,7 +46,13 @@ def write_json(new_data, filename):
         json.dump(new_data, fp)
     print("Write successful")
 
-
+def createbackup_folder():
+    today = datetime.date.today()
+    yesterday = today - datetime.timedelta(days=1)
+    directory = "backup" + yesterday.strftime('%Y%m%d')
+    os.mkdir(directory)
+    print ("directory created")
+    return directory
 
 def getConfig(filename):
     Config = {}
@@ -59,6 +69,9 @@ config = getConfig(sys.argv[1:][0])
 es = config["es_url"]
 
 listofindexes = config["allindexes"]
+
+directory = createbackup_folder() 
+os.chdir(directory)
 
 for index in listofindexes:
   print (index)
