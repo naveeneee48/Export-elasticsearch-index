@@ -62,7 +62,7 @@ def getConfig(filename):
 
 config = {}
 if len(sys.argv) != 2:
-    print("Usage: python diskalert.py <config-name>")
+    print("Usage: python getdataelastic.py <json-config-file>")
     sys.exit(1)
 config = getConfig(sys.argv[1:][0])
 
